@@ -1,0 +1,36 @@
+Package: DHaushaltR
+Title: German Federal Digital Budget Data (2019-2025)
+Version: 0.1.0
+Authors@R:
+    person("Juan", "Vivanco", email = "jvivanco@ikmail.com",
+           role = c("aut", "cre"),
+           comment = c(ORCID = ""))
+Description: Provides the cleaned dataset from the Agora Digitale Transformation
+    research project on Germany's federal digital budget ('Digitalhaushalt').
+    The dataset covers budget lines tagged for digitalisation across five fiscal
+    years (2019, 2021, 2023, 2024, 2025), including thematic digital categories,
+    detection method flags, and resolved Funktionenplan codes. Companion lookup
+    tables map all code columns to human-readable German labels.
+License: MIT + file LICENSE
+License_restricts_use: yes
+Copyright: Data © Agora Digitale Transformation gGmbH, CC BY-SA 4.0
+    (https://creativecommons.org/licenses/by-sa/4.0/).
+    Package code © Juan Vivanco, MIT.
+URL: https://github.com/jvivanco/DHaushaltR
+BugReports: https://github.com/jvivanco/DHaushaltR/issues
+Depends:
+    R (>= 4.1.0)
+Suggests:
+    dplyr,
+    ggplot2,
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+LazyDataCompression: xz
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+VignetteBuilder: knitr
+Language: en-GB
