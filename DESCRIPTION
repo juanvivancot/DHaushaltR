@@ -12,10 +12,6 @@ Description: Provides the cleaned dataset from the Agora Digitale Transformation
     detection method flags, and resolved Funktionenplan codes. Companion lookup
     tables map all code columns to human-readable German labels.
 License: MIT + file LICENSE
-License_restricts_use: yes
-Copyright: Data © Agora Digitale Transformation gGmbH, CC BY-SA 4.0
-    (https://creativecommons.org/licenses/by-sa/4.0/).
-    Package code © Juan Vivanco, MIT.
 URL: https://github.com/jvivanco/DHaushaltR
 BugReports: https://github.com/jvivanco/DHaushaltR/issues
 Depends:

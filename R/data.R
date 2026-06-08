@@ -8,68 +8,57 @@
 #' `titel_text`) have been removed from the raw source file.
 #'
 #' @format A data frame with ~27 000 rows and 23 variables:
-#'
-#' **Identifiers**
 #' \describe{
 #'   \item{id}{Character. Unique identifier: Kapitel + Titel + Funktion.}
 #'   \item{jahr}{Integer. Fiscal year (2019, 2021, 2023, 2024, 2025).}
-#'   \item{einzelplan}{Character (2-digit). Departmental budget
-#'     ('Einzelplan'); corresponds to a federal ministry or top-level body.}
-#'   \item{kapitel}{Character. Chapter number within the Einzelplan.}
-#'   \item{gruppe}{Character. Expenditure/revenue group code
-#'     (3-digit; see [gruppe_labels]).}
-#'   \item{funktion}{Character (3-digit). Function code from the federal
-#'     Funktionenplan. Describes the political purpose of the expenditure.
-#'     See [hf_labels] and [of_labels] for the hierarchy.}
-#'   \item{funktion_lvl1}{Character (1-digit). Hauptfunktion — first digit
-#'     of `funktion`. Nine broad policy areas (see [hf_labels]).}
-#'   \item{funktion_lvl2}{Character (2-digit). Oberfunktion — first two
-#'     digits of `funktion`. 56 finer policy sub-areas (see [of_labels]).}
-#' }
-#'
-#' **Expenditure amounts** (all values in thousands of EUR)
-#' \describe{
-#'   \item{soll}{Numeric. Planned ('Soll') expenditure for the budget line.}
+#'   \item{digi_klasse}{Integer (0--8, or \code{NA}). Methodological
+#'     digitalisation class (Table 1 of the source study).
+#'     \code{0} = assessed, not digital;
+#'     \code{1}--\code{8} = confirmed digital (different confidence levels);
+#'     \code{NA} = not flagged by any detection method.}
+#'   \item{soll}{Numeric. Planned ('Soll') expenditure, thousands of EUR.}
 #'   \item{digi_soll_eng}{Numeric. Planned digital expenditure, narrow
-#'     definition. `NA` for non-digital lines.}
+#'     definition, thousands of EUR. \code{NA} for non-digital lines.}
 #'   \item{digi_soll_weit}{Numeric. Planned digital expenditure, broad
-#'     definition. `NA` for non-digital lines.}
-#'   \item{ist}{Numeric. Actual ('Ist') expenditure. Available for closed
-#'     fiscal years; `NA` otherwise.}
+#'     definition, thousands of EUR. \code{NA} for non-digital lines.}
+#'   \item{ist}{Numeric. Actual ('Ist') expenditure, thousands of EUR.
+#'     Available for closed fiscal years; \code{NA} otherwise.}
 #'   \item{digi_ist_eng}{Numeric. Actual digital expenditure, narrow
-#'     definition.}
+#'     definition, thousands of EUR.}
 #'   \item{digi_ist_weit}{Numeric. Actual digital expenditure, broad
-#'     definition.}
-#' }
-#'
-#' **Classification**
-#' \describe{
+#'     definition, thousands of EUR.}
 #'   \item{titel_text}{Character. Full line description: chapter heading,
 #'     title group purpose, title text, and explanatory notes. Keywords
 #'     identified by the TexAn method are marked with brackets
 #'     (\code{[}, \code{]}, \code{\{}, \code{\}}).}
-#'   \item{digi_klasse}{Integer (0–8, or \code{NA}). Methodological
-#'     digitalisation class (Table 1 of the source study).
-#'     \code{0} = assessed, not digital;
-#'     \code{1}–\code{8} = confirmed digital (different confidence levels);
-#'     \code{NA} = not flagged by any detection method.}
-#'   \item{kategorie}{Integer (1–9, or \code{NA}). Digital theme category,
-#'     derived from the original nine one-hot columns. Set for confirmed
-#'     digital lines (\code{digi_klasse} 1–8) only. See [kat_labels].}
-#' }
-#'
-#' **Detection method flags** (all 0/1 integers)
-#' \describe{
-#'   \item{any_tag}{1 if the line was flagged by any detection method.}
-#'   \item{expert_tag}{1 if flagged via expert knowledge from federal
-#'     administration.}
-#'   \item{large_soll_tag}{1 if flagged because planned expenditure
-#'     exceeds EUR 100 million.}
-#'   \item{ml_tag}{1 if flagged by the machine-learning classifier.}
-#'   \item{digital_series_tag}{1 if flagged as part of a digital budget
-#'     series identified in a predecessor project.}
-#'   \item{texan_tag}{1 if flagged by TexAn keyword text analysis
-#'     (see [texan_keywords]).}
+#'   \item{any_tag}{Integer (0/1). 1 if the line was flagged by any
+#'     detection method.}
+#'   \item{expert_tag}{Integer (0/1). 1 if flagged via expert knowledge
+#'     from federal administration.}
+#'   \item{large_soll_tag}{Integer (0/1). 1 if flagged because planned
+#'     expenditure exceeds EUR 100 million.}
+#'   \item{ml_tag}{Integer (0/1). 1 if flagged by the machine-learning
+#'     classifier.}
+#'   \item{digital_series_tag}{Integer (0/1). 1 if flagged as part of a
+#'     digital budget series from a predecessor project.}
+#'   \item{texan_tag}{Integer (0/1). 1 if flagged by TexAn keyword text
+#'     analysis (see \code{\link{texan_keywords}}).}
+#'   \item{einzelplan}{Character (2-digit). Departmental budget
+#'     ('Einzelplan'); corresponds to a federal ministry or top-level body.}
+#'   \item{kapitel}{Character. Chapter number within the Einzelplan.}
+#'   \item{gruppe}{Character (3-digit). Expenditure/revenue group code.
+#'     See \code{\link{gruppe_labels}}.}
+#'   \item{funktion}{Character (3-digit). Function code from the federal
+#'     Funktionenplan, describing the political purpose of the expenditure.}
+#'   \item{funktion_lvl1}{Character (1-digit). Hauptfunktion: first digit
+#'     of \code{funktion}. Nine broad policy areas.
+#'     See \code{\link{hf_labels}}.}
+#'   \item{funktion_lvl2}{Character (2-digit). Oberfunktion: first two
+#'     digits of \code{funktion}. 56 finer policy sub-areas.
+#'     See \code{\link{of_labels}}.}
+#'   \item{kategorie}{Integer (1--9, or \code{NA}). Digital theme category.
+#'     Set only for confirmed digital lines (\code{digi_klasse} 1--8).
+#'     See \code{\link{kat_labels}}.}
 #' }
 #'
 #' @source Agora Digitale Transformation gGmbH,
