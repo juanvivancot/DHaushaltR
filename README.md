@@ -8,7 +8,7 @@ research project, covering fiscal years 2019, 2021, 2023, 2024, and 2025.
 
 ```r
 # install.packages("pak")
-pak::pak("jvivanco/DHaushaltR")
+pak::pak("juanvivancot/DHaushaltR")
 ```
 
 ## What's included
