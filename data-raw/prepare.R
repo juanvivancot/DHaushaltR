@@ -11,15 +11,14 @@ library(readxl)
 library(dplyr)
 library(usethis)
 
-# ---- 0. Locate source file ---------------------------------------------------
-# Adjust this path if your copy of the xlsx lives elsewhere.
-xlsx_path <- here::here(
-  "../Vivanco-Agora-HHC-26/data-in/Digitalhaushalt_Open_Data_DOI.xlsx"
-)
-stopifnot(file.exists(xlsx_path))
+# ---- 0. Download source file -------------------------------------------------
+# The dataset is published under CC BY-SA 4.0 by Agora Digitale Transformation.
+xlsx_url <- "https://agoradigital.de/wp-content/uploads/2026/04/Digitalhaushalt_Open_Data_DOI.xlsx"
+xlsx_tmp  <- tempfile(fileext = ".xlsx")
+download.file(xlsx_url, xlsx_tmp, mode = "wb", quiet = TRUE)
 
 # ---- 1. Read raw data --------------------------------------------------------
-raw <- read_excel(xlsx_path, sheet = "Daten")
+raw <- read_excel(xlsx_tmp, sheet = "Daten")
 
 # ---- 2. Clean ----------------------------------------------------------------
 # Drop ~61 rows with missing soll or titel_text.
@@ -80,8 +79,8 @@ hf_labels <- c(
   "1" = "Bildungswesen, Wissenschaft, Forschung, kulturelle Angelegenheiten",
   "2" = "Soziale Sicherung, Familie und Jugend, Arbeitsmarktpolitik",
   "3" = "Gesundheit, Umwelt, Sport und Erholung",
-  "4" = "Wohnungswesen, Staedte bau, Raumordnung und kommunale Gemeinschaftsdienste",
-  "5" = "Ernaehrung, Landwirtschaft und Forsten",
+  "4" = "Wohnungswesen, Städtebau, Raumordnung und kommunale Gemeinschaftsdienste",
+  "5" = "Ernährung, Landwirtschaft und Forsten",
   "6" = "Energie- und Wasserwirtschaft, Gewerbe, Dienstleistungen",
   "7" = "Verkehrs- und Nachrichtenwesen",
   "8" = "Finanzwirtschaft"
@@ -92,7 +91,7 @@ hf_labels_short <- c(
   "1" = "Bildung & Forschung",
   "2" = "Soziale Sicherung",
   "3" = "Gesundheit & Umwelt",
-  "4" = "Wohnen & Staedte bau",
+  "4" = "Wohnen & Städtebau",
   "5" = "Landwirtschaft",
   "6" = "Energie & Gewerbe",
   "7" = "Verkehr & Nachrichten",
@@ -100,24 +99,24 @@ hf_labels_short <- c(
 )
 
 of_labels <- c(
-  "01" = "Politische Fuehrung und zentrale Verwaltung",
-  "02" = "Auswaertige Angelegenheiten",
+  "01" = "Politische Führung und zentrale Verwaltung",
+  "02" = "Auswärtige Angelegenheiten",
   "03" = "Verteidigung",
-  "04" = "Oeffentliche Sicherheit und Ordnung",
+  "04" = "Öffentliche Sicherheit und Ordnung",
   "05" = "Rechtsschutz",
   "06" = "Finanzverwaltung",
   "11" = "Allgemeinbildende und berufliche Schulen",
   "12" = "Allgemeinbildende und berufliche Schulen",
   "13" = "Hochschulen",
-  "14" = "Foerderung fuer Schueler, Studierende und Weiterbildung",
+  "14" = "Förderung für Schüler, Studierende und Weiterbildung",
   "15" = "Sonstiges Bildungswesen",
-  "16" = "Wissenschaft, Forschung, Entwicklung ausserhalb der Hochschulen",
+  "16" = "Wissenschaft, Forschung, Entwicklung außerhalb der Hochschulen",
   "18" = "Kultur und Religion",
   "19" = "Kultur und Religion",
-  "21" = "Verwaltung fuer soziale Angelegenheiten",
+  "21" = "Verwaltung für soziale Angelegenheiten",
   "22" = "Sozialversicherung einschl. Arbeitslosenversicherung",
-  "23" = "Familienhilfe, Wohlfahrtspflege u.ae.",
-  "24" = "Soziale Leistungen fuer Folgen von Krieg und politischen Ereignissen",
+  "23" = "Familienhilfe, Wohlfahrtspflege u. Ä.",
+  "24" = "Soziale Leistungen für Folgen von Krieg und politischen Ereignissen",
   "25" = "Arbeitsmarktpolitik",
   "26" = "Kinder- und Jugendhilfe nach SGB VIII",
   "27" = "Kindertagesbetreuung nach SGB VIII",
@@ -128,31 +127,31 @@ of_labels <- c(
   "33" = "Umwelt- und Naturschutz",
   "34" = "Nukleare Sicherheit und Strahlenschutz",
   "41" = "Wohnungswesen, Wohnungsbauprämie",
-  "42" = "Geoinformation, Raumordnung und Landesplanung, Staedtebaufoerderung",
+  "42" = "Geoinformation, Raumordnung und Landesplanung, Städtebauförderung",
   "43" = "Kommunale Gemeinschaftsdienste",
-  "51" = "Verwaltung fuer Ernaehrung, Landwirtschaft und Forsten",
-  "52" = "Landwirtschaft und Ernaehrung",
+  "51" = "Verwaltung für Ernährung, Landwirtschaft und Forsten",
+  "52" = "Landwirtschaft und Ernährung",
   "53" = "Forstwirtschaft und Jagd, Fischerei",
-  "61" = "Verwaltung fuer Energie- und Wasserwirtschaft, Gewerbe und Dienstleistungen",
-  "62" = "Wasserwirtschaft, Hochwasser- und Kuestenschutz",
+  "61" = "Verwaltung für Energie- und Wasserwirtschaft, Gewerbe und Dienstleistungen",
+  "62" = "Wasserwirtschaft, Hochwasser- und Küstenschutz",
   "63" = "Bergbau, verarbeitendes Gewerbe und Baugewerbe",
   "64" = "Energie- und Wasserversorgung, Entsorgung",
   "65" = "Handel und Tourismus",
   "66" = "Geld- und Versicherungswesen",
   "68" = "Sonstiges Gewerbe und Dienstleistungen",
-  "69" = "Regionale Foerdermassnahmen",
+  "69" = "Regionale Fördermaßnahmen",
   "71" = "Verwaltung des Verkehrs- und Nachrichtenwesens",
-  "72" = "Strassen",
-  "73" = "Wasserstrassen und Haefen, Schifffahrt",
-  "74" = "Eisenbahnen und oeffentlicher Personennahverkehr",
+  "72" = "Straßen",
+  "73" = "Wasserstraßen und Häfen, Schifffahrt",
+  "74" = "Eisenbahnen und öffentlicher Personennahverkehr",
   "75" = "Luftfahrt",
   "77" = "Nachrichtenwesen",
   "79" = "Sonstiges Verkehrswesen",
-  "81" = "Grund- und Kapitalvermoegen, Sondervermoegen",
+  "81" = "Grund- und Kapitalvermögen, Sondervermögen",
   "82" = "Steuern und Finanzzuweisungen",
   "83" = "Schulden",
-  "84" = "Beihilfen, Unterstuetzungen u.ae.",
-  "85" = "Ruecklagen",
+  "84" = "Beihilfen, Unterstützungen u. Ä.",
+  "85" = "Rücklagen",
   "86" = "Sonstiges",
   "88" = "Globalposten",
   "89" = "Haushaltstechnische Verrechnungen"
@@ -186,17 +185,17 @@ texan_keywords <- c(
   "Cybersicherheit"               = "\\[?\\{?[Cc]yber",
   "Netzpolitik"                   = "Netzpolitik",
   "Moderne Verwaltung"            = "Moderne Verwaltung",
-  "KI / Kuenstliche Intelligenz"  = "Kuenstliche Intelligenz|\\[KI\\]|\\{KI\\}",
+  "KI / Künstliche Intelligenz"   = "Künstliche Intelligenz|\\[KI\\]|\\{KI\\}",
   "Cloud"                         = "\\[?\\{?[Cc]loud",
   "Blockchain"                    = "[Bb]lockchain",
   "Quantencomputing"              = "[Qq]uanten",
   "Fernmeldeanlagen"              = "Fernmelde",
   "Vernetzung / vernetzt"         = "\\[?\\{?[Vv]ernetz",
-  "Neue Mobilitaet / e-Mob."      = "\\[e Mobilitaet|\\[E-Mobil|\\[neue Mobilitaet",
-  "Interoperabilitaet"            = "Interoperabilitaet",
+  "Neue Mobilität / e-Mob."       = "\\[e Mobilität|\\[E-Mobil|\\[neue Mobilität",
+  "Interoperabilität"             = "Interoperabilität",
   "Geodaten"                      = "Geodaten",
   "Bundesnetzagentur"             = "Bundesnetzagentur",
-  "BSI"                           = "Bundesamt fuer Sicherheit in der",
+  "BSI"                           = "Bundesamt für Sicherheit in der",
   "ITZBund"                       = "ikzentrum.*?Bund|ITZBund",
   "Helmholtz"                     = "Helmholtz",
   "Leibniz / WGL"                 = "Leibniz|WGL",
@@ -212,14 +211,14 @@ texan_keyword_types <- c(
   "Cybersicherheit"               = "Concept",
   "Netzpolitik"                   = "Concept",
   "Moderne Verwaltung"            = "Concept",
-  "KI / Kuenstliche Intelligenz"  = "Concept",
+  "KI / Künstliche Intelligenz"   = "Concept",
   "Cloud"                         = "Concept",
   "Blockchain"                    = "Concept",
   "Quantencomputing"              = "Concept",
   "Fernmeldeanlagen"              = "Concept",
   "Vernetzung / vernetzt"         = "Concept",
-  "Neue Mobilitaet / e-Mob."      = "Concept",
-  "Interoperabilitaet"            = "Concept",
+  "Neue Mobilität / e-Mob."       = "Concept",
+  "Interoperabilität"             = "Concept",
   "Geodaten"                      = "Concept",
   "Bundesnetzagentur"             = "Institution",
   "BSI"                           = "Institution",
