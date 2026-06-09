@@ -22,6 +22,14 @@ fiscal years (2019, 2021, 2023, 2024, 2025).
 }
 }
 
+\subsection{Source}{
+
+Hütten, M., Eder, F., Prante, F., Scholl, T., and Stier, S. (2025).
+\emph{Digitalhaushalt: Bundesausgaben für Digitalisierung 2019–2025.}
+Agora Digitale Transformation gGmbH.
+\url{https://agoradigital.de/wp-content/uploads/2026/04/ADT_Studie_Digitalhaushalt_2025.pdf}
+}
+
 \subsection{Licence}{
 
 Package code: MIT. Dataset: CC BY-SA 4.0, Agora Digitale Transformation

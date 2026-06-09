@@ -16,6 +16,12 @@
 #' * [gruppe_labels] — 3-digit Gruppe codes → spending-type labels
 #' * [texan_keywords] — named regex vector for TexAn text analysis
 #'
+#' ## Source
+#' Hütten, M., Eder, F., Prante, F., Scholl, T., and Stier, S. (2025).
+#' *Digitalhaushalt: Bundesausgaben für Digitalisierung 2019–2025.*
+#' Agora Digitale Transformation gGmbH.
+#' <https://agoradigital.de/wp-content/uploads/2026/04/ADT_Studie_Digitalhaushalt_2025.pdf>
+#'
 #' ## Licence
 #' Package code: MIT. Dataset: CC BY-SA 4.0, Agora Digitale Transformation
 #' gGmbH. See `?digitalhaushalt` for full attribution.

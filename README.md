@@ -45,16 +45,21 @@ digitalhaushalt |>
   count(theme, sort = TRUE)
 ```
 
+## Source and citation
+
+This package is based on the following study — please cite it when using the data:
+
+> Hütten, M., Eder, F., Prante, F., Scholl, T., and Stier, S. (2025).
+> *Digitalhaushalt: Bundesausgaben für Digitalisierung 2019–2025.*
+> Agora Digitale Transformation gGmbH.
+> <https://agoradigital.de/wp-content/uploads/2026/04/ADT_Studie_Digitalhaushalt_2025.pdf>
+
+For methodology, variable definitions, and classification decisions, the study
+is the authoritative reference.
+
 ## Licence
 
 **Dataset**: © Agora Digitale Transformation gGmbH,
 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
-Please cite as: Agora Digitale Transformation (2025), *Digitalhaushalt Open Data*.
 
 **Package code**: MIT © Juan Vivanco.
-
-## Citation
-
-```r
-citation("DHaushaltR")
-```
