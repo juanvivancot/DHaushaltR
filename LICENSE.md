@@ -19,14 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-## Dataset licence
-
-The `digitalhaushalt` dataset is © Agora Digitale Transformation gGmbH and
-licensed under the Creative Commons Attribution-ShareAlike 4.0 International
-Licence (CC BY-SA 4.0): https://creativecommons.org/licenses/by-sa/4.0/
-
-Please cite as: Agora Digitale Transformation (2025), *Digitalhaushalt Open
-Data*, DOI: 10.5281/zenodo.XXXXXXX.
