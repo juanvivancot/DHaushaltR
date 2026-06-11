@@ -49,10 +49,10 @@ digitalhaushalt |>
 
 This package is based on the following study — please cite it when using the data:
 
-> Hütten, M., Eder, F., Prante, F., Scholl, T., and Stier, S. (2025).
-> *Digitalhaushalt: Bundesausgaben für Digitalisierung 2019–2025.*
+> Bertschek, I., Breithaupt, P., Heinemann, F., Niebel, T., & Schildknecht, J. (2026).
+> *Der Digitalhaushalt 2025: Wird er den hohen Erwartungen gerecht?*
 > Agora Digitale Transformation gGmbH.
-> <https://agoradigital.de/wp-content/uploads/2026/04/ADT_Studie_Digitalhaushalt_2025.pdf>
+> <https://doi.org/10.5281/zenodo.19550821>
 
 For methodology, variable definitions, and classification decisions, the study
 is the authoritative reference.

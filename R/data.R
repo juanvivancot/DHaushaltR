@@ -51,9 +51,8 @@
 #'       until 2021: BMVI)}
 #'     \item{\code{"14"}}{Federal Ministry of Defence
 #'       (\emph{Bundesministerium der Verteidigung}, BMVg)}
-#'     \item{\code{"15"}}{Federal Ministry of Education and Research,
-#'       chapters 15xx (\emph{Bundesministerium für Bildung und Forschung},
-#'       BMBF)}
+#'     \item{\code{"15"}}{Federal Ministry of Health
+#'       (\emph{Bundesministerium für Gesundheit}, BMG)}
 #'     \item{\code{"16"}}{Federal Ministry for the Environment
 #'       (\emph{Bundesministerium für Umwelt, Naturschutz, nukleare Sicherheit
 #'       und Verbraucherschutz}, BMUV)}
@@ -67,19 +66,22 @@
 #'     \item{\code{"21"}}{Federal Commissioner for Data Protection and Freedom
 #'       of Information (\emph{Bundesbeauftragte für den Datenschutz und die
 #'       Informationsfreiheit}, BfDI)}
-#'     \item{\code{"22"}}{Federal Commissioner for Stasi Records (BStU;
-#'       dissolved 2021)}
+#'     \item{\code{"22"}}{Independent Oversight Council
+#'       (\emph{Unabhängiger Kontrollrat}). In earlier budget years this
+#'       \emph{Einzelplan} held the Federal Commissioner for Stasi Records
+#'       (BStU; dissolved 2021).}
 #'     \item{\code{"23"}}{Federal Ministry for Economic Cooperation and
 #'       Development (\emph{Bundesministerium für wirtschaftliche
 #'       Zusammenarbeit und Entwicklung}, BMZ)}
-#'     \item{\code{"24"}}{Federal Ministry of Health
-#'       (\emph{Bundesministerium für Gesundheit}, BMG)}
+#'     \item{\code{"24"}}{Federal Ministry for Digital Affairs and State
+#'       Modernisation (\emph{Bundesministerium für Digitales und
+#'       Staatsmodernisierung}, BMDS; new ministry, present from 2025)}
 #'     \item{\code{"25"}}{Federal Ministry for Housing and Urban Development
 #'       (\emph{Bundesministerium für Wohnen, Stadtentwicklung und Bauwesen},
 #'       BMWSB)}
-#'     \item{\code{"30"}}{Federal Ministry of Education and Research,
-#'       chapters 30xx -- research promotion
-#'       (\emph{Bundesministerium für Bildung und Forschung}, BMBF)}
+#'     \item{\code{"30"}}{Federal Ministry of Education and Research
+#'       (\emph{Bundesministerium für Bildung und Forschung}, BMBF). From
+#'       2026 restructured as BMFTR (research, technology and space).}
 #'     \item{\code{"32"}}{Federal Debt (\emph{Bundesschuld})}
 #'     \item{\code{"60"}}{General Financial Administration
 #'       (\emph{Allgemeine Finanzverwaltung})}
@@ -154,8 +156,8 @@
 #'   digital.}
 #'
 #'   \item{ist}{Numeric. Actual (\emph{Ist}) expenditure, in thousands of
-#'   EUR. Available only for closed fiscal years (2019, 2021, 2023);
-#'   \code{NA} for 2024 and 2025.}
+#'   EUR. Available for closed fiscal years (2019, 2021, 2023, 2024);
+#'   \code{NA} for 2025 (not yet closed).}
 #'
 #'   \item{digi_ist_eng}{Numeric. Actual digital expenditure, narrow
 #'   definition, in thousands of EUR.}
@@ -171,8 +173,8 @@
 #'   keyword list.}
 #'
 #'   \item{digi_klasse}{Integer or \code{NA}. Methodological digitalisation
-#'   class assigned by the research project (see Table 1 of Hütten et al.,
-#'   2025). Describes \emph{how} a line was classified, not its topic.
+#'   class assigned by the research project (see Table 1 of Bertschek et al.,
+#'   2026). Describes \emph{how} a line was classified, not its topic.
 #'   \describe{
 #'     \item{\code{NA}}{Not flagged by any detection method; not assessed.}
 #'     \item{\code{0}}{Flagged by at least one method but assessed as
@@ -263,10 +265,10 @@
 #'     into the single integer column \code{kategorie} and removed.
 #' }
 #'
-#' @source Hütten, M., Eder, F., Prante, F., Scholl, T., and Stier, S.
-#'   (2025). \emph{Digitalhaushalt: Bundesausgaben für Digitalisierung
-#'   2019--2025}. Agora Digitale Transformation gGmbH.
-#'   \url{https://agoradigital.de/wp-content/uploads/2026/04/ADT_Studie_Digitalhaushalt_2025.pdf}
+#' @source Bertschek, I., Breithaupt, P., Heinemann, F., Niebel, T., and
+#'   Schildknecht, J. (2026). \emph{Der Digitalhaushalt 2025: Wird er den
+#'   hohen Erwartungen gerecht?} Agora Digitale Transformation gGmbH.
+#'   \doi{10.5281/zenodo.19550821}
 #'
 #'   Dataset: Agora Digitale Transformation gGmbH,
 #'   \emph{Digitalhaushalt Open Data}.

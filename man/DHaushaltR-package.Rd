@@ -39,8 +39,8 @@ gGmbH. See \code{?digitalhaushalt} for full attribution.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/jvivanco/DHaushaltR}
-  \item Report bugs at \url{https://github.com/jvivanco/DHaushaltR/issues}
+  \item \url{https://github.com/juanvivancot/DHaushaltR}
+  \item Report bugs at \url{https://github.com/juanvivancot/DHaushaltR/issues}
 }
 
 }
