@@ -1,7 +1,7 @@
 # DHaushaltR
 
 An R data package providing the **German Federal Digital Budget** dataset
-from the [Agora Digitale Transformation](https://www.agora-digitale-transformation.de)
+from the [Agora Digitale Transformation](https://agoradigital.de)
 research project, covering fiscal years 2019, 2021, 2023, 2024, and 2025.
 
 ## Installation
