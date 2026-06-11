@@ -17,10 +17,10 @@
 #' * [texan_keywords] — named regex vector for TexAn text analysis
 #'
 #' ## Source
-#' Hütten, M., Eder, F., Prante, F., Scholl, T., and Stier, S. (2025).
-#' *Digitalhaushalt: Bundesausgaben für Digitalisierung 2019–2025.*
-#' Agora Digitale Transformation gGmbH.
-#' <https://agoradigital.de/wp-content/uploads/2026/04/ADT_Studie_Digitalhaushalt_2025.pdf>
+#' Bertschek, I., Breithaupt, P., Heinemann, F., Niebel, T., and
+#' Schildknecht, J. (2026). *Der Digitalhaushalt 2025: Wird er den hohen
+#' Erwartungen gerecht?* Agora Digitale Transformation gGmbH.
+#' <https://doi.org/10.5281/zenodo.19550821>
 #'
 #' ## Licence
 #' Package code: MIT. Dataset: CC BY-SA 4.0, Agora Digitale Transformation

@@ -24,10 +24,10 @@ fiscal years (2019, 2021, 2023, 2024, 2025).
 
 \subsection{Source}{
 
-Hütten, M., Eder, F., Prante, F., Scholl, T., and Stier, S. (2025).
-\emph{Digitalhaushalt: Bundesausgaben für Digitalisierung 2019–2025.}
-Agora Digitale Transformation gGmbH.
-\url{https://agoradigital.de/wp-content/uploads/2026/04/ADT_Studie_Digitalhaushalt_2025.pdf}
+Bertschek, I., Breithaupt, P., Heinemann, F., Niebel, T., and
+Schildknecht, J. (2026). \emph{Der Digitalhaushalt 2025: Wird er den hohen
+Erwartungen gerecht?} Agora Digitale Transformation gGmbH.
+\url{https://doi.org/10.5281/zenodo.19550821}
 }
 
 \subsection{Licence}{
